@@ -1,0 +1,11 @@
+lockboxPath=/opt/CITI_DCTMD2App/d245/Lockbox
+default_language=en
+forceServerInDocbaseName=false
+hideDomain=true
+#docbaseFilter=globalstore
+temporaryMaxFiles=10240
+logLevel=all
+#logFilter=GetLabels,GetVD
+logSaveMethod=false
+logLevel=debug
+

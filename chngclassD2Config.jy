@@ -1,0 +1,10 @@
+#ident	"%W%"
+deployments = AdminConfig.getid('/Deployment:D2-Config/')
+deploymentObject = AdminConfig.showAttribute(deployments, 'deployedObject')
+myModules = AdminConfig.showAttribute(deploymentObject, 'modules')
+myModules = myModules[1:len(myModules)-1].split(" ")
+for module in myModules:
+    if (module.find('WebModuleDeployment')!= -1):
+        AdminConfig.modify(module, [['classloaderMode', 'PARENT_LAST']])
+AdminConfig.save()
+

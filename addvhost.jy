@@ -1,0 +1,30 @@
+#ident	"%W%"
+import sys
+cellName  =  sys.argv[0]
+DHPS = sys.argv[1]
+DHP = sys.argv[2]
+
+
+cellID = AdminConfig.getid('/Cell:' + cellName + '/')
+AdminConfig.create('VirtualHost', cellID, '[[name  default_host ]]')
+vhiD =AdminConfig.getid('/VirtualHost:default_host/')
+
+param='[[hostname "*" ] [port '
+param=param+ `DHPS` + ']]'
+AdminConfig.create('HostAlias', vhiD, param);
+
+param='[[hostname "*" ] [port '
+param=param+ `DHP` + ']]'
+AdminConfig.create('HostAlias', vhiD, param);
+
+
+AdminConfig.save()
+
+
+# wsadmin>param='[[hostname "*" ] [port '
+# wsadmin>param=param+ `DHPS` + ']]'
+# wsadmin>param
+# '[[hostname "*" ] [port 10120]]'
+# wsadmin>AdminConfig.create('HostAlias', vhiD, param);
+# '(cells/d2_Cell|virtualhosts.xml#HostAlias_1398255704423)'
+# wsadmin>AdminConfig.save()

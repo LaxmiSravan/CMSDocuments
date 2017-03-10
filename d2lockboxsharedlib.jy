@@ -1,0 +1,17 @@
+import sys
+
+print sys.argv[3]
+n1 = AdminConfig.getid('/Cell:'+ sys.argv[0]+'/Node:'+sys.argv[1]+'/')
+#Serv = AdminConfig.getid('/Cell:cloudappCell/Node:cloudapp1/Server:cloudapp1Server')
+library = AdminConfig.create('Library', n1 , [['name', 'lockbox'], ['classPath', sys.argv[2] ], ['isolatedClassLoader', 'false'] ])
+library = AdminConfig.getid('/Library:lockbox/')
+deployment = AdminConfig.getid('/Deployment:D2/')
+appDeploy = AdminConfig.showAttribute(deployment, 'deployedObject')
+classLoad1 = AdminConfig.showAttribute(appDeploy, 'classloader')
+print AdminConfig.create('LibraryRef', classLoad1, [['libraryName', 'lockbox']])
+deployment1 = AdminConfig.getid('/Deployment:D2-Config/')
+appDeploy1 = AdminConfig.showAttribute(deployment1, 'deployedObject')
+classLoad2 = AdminConfig.showAttribute(appDeploy1, 'classloader')
+print AdminConfig.create('LibraryRef', classLoad2, [['libraryName', 'lockbox']])
+AdminConfig.save()
+

@@ -1,0 +1,12 @@
+import sys
+
+n1 = AdminConfig.getid('/Cell:'+ sys.argv[0]+'/Node:'+sys.argv[1]+'/')
+#Serv = AdminConfig.getid('/Cell:cloudappCell/Node:cloudapp1/Server:cloudapp1Server')
+library = AdminConfig.create('Library', n1 , [['name', 'aspectjrt'], ['classPath', sys.argv[2] ], ['isolatedClassLoader', 'true'] ])
+library = AdminConfig.getid('/Library:aspectjrt/')
+deployment = AdminConfig.getid('/Deployment:D2/')
+appDeploy = AdminConfig.showAttribute(deployment, 'deployedObject')
+classLoad1 = AdminConfig.showAttribute(appDeploy, 'classloader')
+print AdminConfig.create('LibraryRef', classLoad1, [['libraryName', 'aspectjrt']])
+AdminConfig.save()
+

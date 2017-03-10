@@ -1,0 +1,6 @@
+#ident  "%W%"
+deployments = AdminConfig.getid('/Deployment:D2-Config/')
+depObject = AdminConfig.showAttribute(deployments, 'deployedObject')
+classldr = AdminConfig.showAttribute(depObject, 'classloader')
+AdminConfig.modify(classldr, [['mode', 'PARENT_LAST']])
+AdminConfig.save()

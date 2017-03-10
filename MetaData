@@ -1,0 +1,9 @@
+#install D2
+software1=CITI_DCTMD2AppP22-1.0_A0-165240.x86_64.rpm
+space1=13000M
+pkgQueryString1=CITI_DCTMD2AppP22-1.0_A0-165240.x86_64
+# install mstCrypto
+software2=mstCrypto-1.0_A0-APPID.x86_64.rpm
+space1=200M
+pkgQueryString2=mstCrypto-1.0_A0-APPID.x86_64
+

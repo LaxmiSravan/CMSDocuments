@@ -1,0 +1,13 @@
+InstanceType=installbinary
+PkgLoc=/tmp
+IBMBPM_RPM_INSTALL_LOCATION=/opt
+PkgRelocation=/opt/middleware
+RuntimeLoc=/opt/middleware
+AppName=d2_Cell
+cellName=dawebtop_Cell
+LPAR=P
+Environment=DEV
+ContentServer1=vm-3bb9-c3a2.nam.nsroot.net
+ContentServer2=vm-3bb9-c3a2.nam.nsroot.net
+D2PW=xxxx
+RestartOps=Apps

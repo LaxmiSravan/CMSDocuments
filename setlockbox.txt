@@ -1,0 +1,4 @@
+Setting up LockBox from unix shell:
+
+1. On the host, open new shell for WAS cell owner and run following command:
+
